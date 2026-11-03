@@ -10,8 +10,8 @@ Para no empezar desde cero, se entrega un fichero `arkanoid_game.py` con la estr
 > **Fecha límite: jueves 12 de noviembre.** Basta con que lo suba una persona del grupo.
 > 
 ## Integrantes del grupo
-Mar López Requena
-Cayetana Muñoz Domínguez
+- Mar López Requena
+- Cayetana Muñoz Domínguez
 
 ## Cómo se evalúa este hito
 
