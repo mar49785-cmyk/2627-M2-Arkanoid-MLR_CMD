@@ -1,7 +1,13 @@
 # Arkanoid-M2
+
 En este segundo hito construiremos una versión básica de Arkanoid empleando `pygame`. El objetivo es que el alumnado practique el manejo de bucles del juego reutilizando una clase preparada a modo de plantilla.
 
 Para no empezar desde cero, se entrega un fichero `arkanoid_game.py` con la estructura del juego el cual importa un fichero core con todo lo que se necesita. Cada método incluye instrucciones `TODO` que debes resolver.
+
+## Grupo MLR_CMD
+Miembros del grupo: 
+· Mar López Requena
+· Cayetana Muñoz Domínguez
 
 > **Cómo entregar (curso 26/27).** En el repositorio `2627-M2-Arkanoid` pulsad
 > **«Use this template» → Create a new repository** para crear el repositorio del grupo
