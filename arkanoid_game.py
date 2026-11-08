@@ -28,7 +28,7 @@ def cargar_nivel(self) -> list[str]:
     ancho = len(filas[0])
     for fila in filas:
         if len(fila) != ancho:
-            raise ValueError("Todas las dilas de nivel deben de tener el mismo ancho")
+            raise ValueError("Todas las filas de nivel deben de tener el mismo ancho")
     
     # - Guarda el resultado en `self.layout` y devuélvelo.
     self.layout = filas
@@ -139,6 +139,8 @@ def actualizar_bola(self) -> None:
     # - Controla fin de nivel cuando no queden bloques y resta vidas si la bola cae.
     if not self.blocks:
         self.end_message = "¡Nivel completado!"
+        self.ball_velocity.update(0,0)
+        return
 
 @arkanoid_method
 def dibujar_escena(self) -> None:
@@ -187,6 +189,14 @@ def run(self) -> None:
             elif event.type == self.EVENT_KEYDOWN:
                 if event.key == self.KEY_ESCAPE:
                     self.running = False
+        # Si no te quedan bloques de vida:
+        if not self.blocks:
+            self.end_message = "¡Nivel completado!"
+            self.dibujar_escena()
+            self.actualizar_pantalla()
+            self.esperar(1500)
+            self.running = False
+            continue
         # Lógica
         self.procesar_input()
         self.actualizar_bola()
