@@ -4,16 +4,16 @@ En este segundo hito construiremos una versión básica de Arkanoid empleando `p
 
 Para no empezar desde cero, se entrega un fichero `arkanoid_game.py` con la estructura del juego el cual importa un fichero core con todo lo que se necesita. Cada método incluye instrucciones `TODO` que debes resolver.
 
-## Grupo MLR_CMD
-Miembros del grupo: 
-· Mar López Requena
-· Cayetana Muñoz Domínguez
-
 > **Cómo entregar (curso 26/27).** En el repositorio `2627-M2-Arkanoid` pulsad
 > **«Use this template» → Create a new repository** para crear el repositorio del grupo
 > (ya no se usa *fork*). Cuando lo tengáis resuelto, comprimid el proyecto en
 > `arkanoid-<nombre del grupo>.zip` y subidlo al formulario de ev.us.es.
 > **Fecha límite: jueves 12 de noviembre.** Basta con que lo suba una persona del grupo.
+
+## Grupo MLR_CMD
+Miembros del grupo: 
+>· Mar López Requena
+>· Cayetana Muñoz Domínguez
 
 ## Cómo se evalúa este hito
 
