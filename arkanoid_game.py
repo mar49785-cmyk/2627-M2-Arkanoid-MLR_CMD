@@ -11,6 +11,8 @@ from arkanoid_core import *
 # Métodos a completar por el alumnado
 # --------------------------------------------------------------------- #
 
+# Rcordar poner la linea de nivel en la terminal: python arkanoid_game.py niveles/demo.txt o del nivel que sea
+
 @arkanoid_method
 def cargar_nivel(self) -> list[str]:
     """Lee el fichero de nivel y devuelve la cuadrícula como lista de filas."""
@@ -95,10 +97,23 @@ def actualizar_bola(self) -> None:
     ball_rect = self.obtener_rect_bola()
 
     # - Gestiona rebotes con paredes, paleta y bloques, modificando velocidad y puntuación.
-    if ball_rect.left <= 0 or ball_rect.right >= self.SCREEN_WIDTH: # Rebote con laterales
-        self.ball_velocity.x *= -1
-    if ball_rect.top <= 0: # Rebote con el techo
-        self.ball_velocity.y *= -1
+    if ball_rect.left < 0:
+        self.ball_pos.x = self.BALL_RADIUS
+        self.ball_velocity.x = abs(self.ball_velocity.x)
+    elif ball_rect.right > self.SCREEN_WIDTH:
+        self.ball_pos.x = self.SCREEN_WIDTH - self.BALL_RADIUS
+        self.ball_velocity.x = -abs(self.ball_velocity.x)
+    if ball_rect.top < 0:
+        self.ball_pos.y = self.BALL_RADIUS
+        self.ball_velocity.y = abs(self.ball_velocity.y)
+
+    # La bola se considera perdida en cuanto empieza a salir por abajo.
+    if ball_rect.bottom >= self.SCREEN_HEIGHT:
+        self.lives -= 1
+        self.reiniciar_bola()
+        return
+
+    ball_rect = self.obtener_rect_bola()
     if ball_rect.colliderect(self.paddle): # Colisión con la paleta
         offset = (ball_rect.centerx - self.paddle.centerx) / (self.PADDLE_SIZE[0] / 2)
         angle = offset * (math.pi / 3) # Máximo 60 grados
@@ -122,10 +137,6 @@ def actualizar_bola(self) -> None:
              break # Salimos para evitar dobles colisiones
 
     # - Controla fin de nivel cuando no queden bloques y resta vidas si la bola cae.
-    if ball_rect.top > self.SCREEN_HEIGHT:
-        self.lives -= 1
-        self.reiniciar_bola()
-        return
     if not self.blocks:
         self.end_message = "¡Nivel completado!"
 

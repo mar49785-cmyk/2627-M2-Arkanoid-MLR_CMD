@@ -133,8 +133,13 @@ class ArkanoidGame:
         if self.screen is not None:
             return
 
-        # Permite ejecutar en entornos sin servidor gráfico (tests/CI).
-        if "SDL_VIDEODRIVER" not in os.environ and not os.environ.get("DISPLAY"):
+        # Usa el controlador sin ventana solo en entornos Unix sin servidor gráfico.
+        if (
+            "SDL_VIDEODRIVER" not in os.environ
+            and os.name != "nt"
+            and not os.environ.get("DISPLAY")
+            and not os.environ.get("WAYLAND_DISPLAY")
+        ):
             os.environ["SDL_VIDEODRIVER"] = "dummy"
 
         pygame.init()
