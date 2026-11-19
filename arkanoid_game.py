@@ -170,13 +170,9 @@ def run(self) -> None:
     """Ejecuta el bucle principal del juego."""
     # - Inicializa recursos (`self.inicializar_pygame`, `self.cargar_nivel`, etc.).
     self.inicializar_pygame()
-    print("Pygame inicializado")
     self.cargar_nivel()
-    print(f"Nivel cargado: {self.layout}")
     self.preparar_entidades()
-    print("Entidades preparadas")
     self.crear_bloques()
-    print(f"Bloques creados: {len(self.blocks)}")
     self.running = True
 
     # - Procesa eventos de `self.iterar_eventos()` y llama a los métodos de actualización/dibujo.
