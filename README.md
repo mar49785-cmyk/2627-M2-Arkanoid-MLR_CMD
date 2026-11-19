@@ -15,6 +15,15 @@ Miembros del grupo:
 - Mar López Requena
 - Cayetana Muñoz Domínguez
 
+## Cómo ejecutar el proyecto:
+Escriba en la terminal el siguiente código:
+python arkanoid_game.py niveles/demo.txt
+En caso de querer jugar a cualquiera de los otros tres niveles, sustituya el demo.txt por nivel1.txtr, nivel2.txt o nivel3.txt.
+
+## Extras incluidos en el juego:
+- 3 nuevos niveles de juego.
+- Rebote de ángulo con paleta.
+
 ## Cómo se evalúa este hito
 
 Este hito **no puntúa por sí solo**. Cumple dos funciones:
